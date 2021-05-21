@@ -45,7 +45,11 @@ Plug 'neovimhaskell/haskell-vim'
 
 Plug 'ctrlpvim/ctrlp.vim'
 
+Plug 'Chiel92/vim-autoformat'
+
 Plug 'MarcWeber/vim-addon-mw-utils'
+
+Plug 'tomtom/tlib_vim'
 
 Plug 'garbas/vim-snipmate'
 
@@ -60,6 +64,12 @@ Plug 'vim-syntastic/syntastic'
 Plug 'preservim/nerdtree'
 " Initialize plugin system
 call plug#end()
+
+" Configure Auto Format
+autocmd BufWrite *.hs :Autoformat
+" Don't automatically indent on save, since vim's autoindent for haskell is buggy
+autocmd FileType haskell let b:autoformat_autoindent=0
+
 
 " Configure Snipmate
 let g:snipMate = { 'snippet_version' : 1 }
