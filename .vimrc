@@ -39,13 +39,13 @@ call plug#begin('~/.vim/plugged')
 
 " Make sure you use single quotes
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+Plug 'scrooloose/nerdcommenter'
+
 Plug 'neoclide/coc.nvim'
 
 Plug 'neovimhaskell/haskell-vim'
 
 Plug 'ctrlpvim/ctrlp.vim'
-
-Plug 'Chiel92/vim-autoformat'
 
 Plug 'MarcWeber/vim-addon-mw-utils'
 
@@ -57,7 +57,7 @@ Plug 'ervandew/supertab'
 
 Plug 'godlygeek/tabular'
 
-Plug 'haskell/stylish-haskell'
+Plug 'alx741/vim-stylishask'
 
 Plug 'vim-syntastic/syntastic'
 
@@ -66,10 +66,11 @@ Plug 'preservim/nerdtree'
 call plug#end()
 
 " Configure Auto Format
-autocmd BufWrite *.hs :Autoformat
-" Don't automatically indent on save, since vim's autoindent for haskell is buggy
-autocmd FileType haskell let b:autoformat_autoindent=0
+let g:hindent_on_save = 1
+au FileType haskell nnoremap <silent> <leader>ph :Hindent<CR>
 
+let g:stylishask_on_save = 1
+au FileType haskell nnoremap <silent> <leader>ps :Stylishask<CR>
 
 " Configure Snipmate
 let g:snipMate = { 'snippet_version' : 1 }
