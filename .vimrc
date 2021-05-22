@@ -25,6 +25,7 @@ set wildmode=longest,list,full
 set wildmenu
 set completeopt+=longest
 
+let g:airline_powerline_fonts = 1
 let g:airline_theme='onedark'
 
 " Open with NerdTree
