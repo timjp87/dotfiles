@@ -109,7 +109,8 @@ let g:syntastic_check_on_wq = 0
 " Configure Ctrl+P
 map <silent> <Leader>t :CtrlP()<CR>
 noremap <leader>b<space> :CtrlPBuffer<cr>
-let g:ctrlp_custom_ignore = '\v[\/]dist$'
+set wildignore+=*/dist/*,*eth2.0-spec-tests/*,*/dist-newstyle/*
+let g:ctrlp_custom_ignore = { 'dir': 'dist$\|eth2.0-spec-tests$|dist-newstyle$' }
 
 " Set hotkeys
 map <C-n> :NERDTreeToggle<CR>
